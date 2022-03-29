@@ -1881,7 +1881,7 @@ public:
 
     unsigned int count() const
     {
-        return valid() ? desc()->NumberOfFunctions : 0;
+        return valid() ? desc()->NumberOfNames : 0;
     }
 
     const char* libName() const
