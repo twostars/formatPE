@@ -1761,9 +1761,14 @@ public:
             return m_exports.pe().byRva<char>(m_names[m_index]);
         }
 
-        unsigned int ordinal() const
+        unsigned short ordinal() const
         {
-            return m_ordinals[m_index];
+            if (m_ordinals == nullptr)
+            {
+                return 0xffffu;
+            }
+
+            return m_exports.base() + m_ordinals[m_index];
         }
 
         const void* address() const
